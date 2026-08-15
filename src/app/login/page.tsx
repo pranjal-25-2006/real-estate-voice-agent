@@ -2,7 +2,7 @@
 
 import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Lock } from "lucide-react";
+
 
 function LoginForm() {
   const router = useRouter();
@@ -41,11 +41,9 @@ function LoginForm() {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-sm glass-card p-8 rounded-2xl">
         <div className="flex flex-col items-center mb-6">
-          <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-3">
-            <Lock size={20} className="text-emerald-400" />
-          </div>
+          <img src="/logo.jpeg" alt="nulify logo" className="w-12 h-12 rounded-xl object-cover mb-3" />
           <h1 className="text-xl font-bold text-white">Sign in</h1>
-          <p className="text-sm text-slate-500 mt-1">PropVista Realty dashboard</p>
+          <p className="text-sm text-slate-500 mt-1">nulify dashboard</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">

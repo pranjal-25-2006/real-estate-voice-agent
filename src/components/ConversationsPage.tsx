@@ -138,7 +138,7 @@ export default function ConversationsPage() {
                             }`}
                           >
                             <p className="text-xs font-medium mb-1 opacity-60 capitalize">
-                              {msg.role === "user" ? conv.lead.name : "PropVista AI"}
+                              {msg.role === "user" ? conv.lead.name : "nulify AI"}
                             </p>
                             {msg.content}
                           </div>

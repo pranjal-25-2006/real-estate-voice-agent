@@ -12,7 +12,6 @@ import {
   Settings,
   Menu,
   X,
-  Bot,
   Mic,
   LogOut,
 } from "lucide-react";
@@ -85,11 +84,9 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
       >
         {/* Logo */}
         <div className="flex items-center gap-3 px-3 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
-            <Bot size={22} className="text-emerald-400" />
-          </div>
+          <img src="/logo.jpeg" alt="nulify logo" className="w-10 h-10 rounded-xl object-cover" />
           <div>
-            <h1 className="text-lg font-bold text-white">PropVista</h1>
+            <h1 className="text-lg font-bold text-white">nulify</h1>
             <p className="text-xs text-slate-500">Voice Agent Dashboard</p>
           </div>
         </div>
@@ -137,7 +134,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
             <LogOut size={18} />
             <span>Log out</span>
           </button>
-          <p className="text-xs text-slate-600 px-3">PropVista Voice AI v1.0</p>
+          <p className="text-xs text-slate-600 px-3">nulify Voice AI v1.0</p>
         </div>
       </motion.aside>
     </>

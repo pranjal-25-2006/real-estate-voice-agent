@@ -399,8 +399,8 @@ async function main() {
 
   // Create Agent Config
   await Promise.all([
-    prisma.agentConfig.create({ data: { key: "company_name", value: "PropVista Realty", label: "Company Name", type: "text", category: "general" } }),
-    prisma.agentConfig.create({ data: { key: "greeting_message", value: "Hello! Welcome to PropVista Realty. I'm your AI property assistant. I can help you find your dream home, schedule site visits, and answer questions about our properties. How can I help you today?", label: "Greeting Message", type: "textarea", category: "general" } }),
+    prisma.agentConfig.create({ data: { key: "company_name", value: "nulify", label: "Company Name", type: "text", category: "general" } }),
+    prisma.agentConfig.create({ data: { key: "greeting_message", value: "Hello! Welcome to nulify. I'm your AI property assistant. I can help you find your dream home, schedule site visits, and answer questions about our properties. How can I help you today?", label: "Greeting Message", type: "textarea", category: "general" } }),
     prisma.agentConfig.create({ data: { key: "tts_voice", value: "rachel", label: "TTS Voice", type: "text", category: "voice" } }),
     prisma.agentConfig.create({ data: { key: "speech_speed", value: "1.0", label: "Speech Speed", type: "number", category: "voice" } }),
     prisma.agentConfig.create({ data: { key: "language", value: "en-IN", label: "Language", type: "text", category: "voice" } }),
@@ -413,7 +413,7 @@ async function main() {
     prisma.agentConfig.create({
       data: {
         key: "system_prompt",
-        value: `You are a professional real estate AI assistant for PropVista Realty. Your role is to:
+        value: `You are a professional real estate AI assistant for nulify. Your role is to:
 
 1. GREET callers warmly and ask how you can help
 2. QUALIFY leads by understanding their needs:
@@ -457,7 +457,7 @@ Available Properties:
 function getMessages(leadIdx: number, name: string) {
   const conversations: Record<number, Array<{ role: string; content: string }>> = {
     0: [
-      { role: "agent", content: "Hello! Welcome to PropVista Realty. I'm your AI property assistant. How can I help you today?" },
+      { role: "agent", content: "Hello! Welcome to nulify. I'm your AI property assistant. How can I help you today?" },
       { role: "user", content: `Hi, I'm ${name}. I'm looking for a 3BHK apartment in Whitefield, Bangalore. My budget is around 1 to 1.5 crore.` },
       { role: "agent", content: "Great choice, Rahul! Whitefield is one of the most sought-after locations in Bangalore. Based on your budget of ₹1-1.5 Cr, I'd recommend Prestige Lakeside Habitat. It offers luxury 3BHK lakeside apartments starting from ₹85 lakhs up to ₹1.4 Cr. They have world-class amenities including a swimming pool, gym, and 24/7 security. Would you like to know more?" },
       { role: "user", content: "That sounds good. What's the carpet area? And is it ready to move in?" },
@@ -466,7 +466,7 @@ function getMessages(leadIdx: number, name: string) {
       { role: "agent", content: "Perfect! I'll schedule a site visit for you this Saturday morning. Can I get your email address so I can send you the property brochure and directions? Also, may I know your timeline for purchase?" },
     ],
     1: [
-      { role: "agent", content: "Hello! Welcome to PropVista Realty. How can I assist you today?" },
+      { role: "agent", content: "Hello! Welcome to nulify. How can I assist you today?" },
       { role: "user", content: "Hi, I'm calling from Dubai. My name is Priya Patel. I'm relocating to Bangalore and looking for a premium villa in a gated community. Budget is around 3 to 4 crore." },
       { role: "agent", content: "Welcome, Priya! It's wonderful to hear you're relocating back to India. For your budget of ₹3-4 Cr, I have an excellent option - Godrej Woodscapes at Budigere Cross. It's a premium villa community with 4BHK villas ranging from ₹2.5-4.5 Cr, surrounded by lush greenery with private gardens. Would you like to hear more?" },
       { role: "user", content: "That sounds lovely. I have two kids - are there good international schools nearby?" },
@@ -474,7 +474,7 @@ function getMessages(leadIdx: number, name: string) {
       { role: "user", content: "Yes, I'll be in Bangalore next month from the 12th to the 20th. Can you arrange a viewing?" },
     ],
     2: [
-      { role: "agent", content: "Hello! Welcome to PropVista Realty. How can I help you?" },
+      { role: "agent", content: "Hello! Welcome to nulify. How can I help you?" },
       { role: "user", content: "Hi, I'm Amit. I work in IT and I'm looking for a 2BHK apartment in Hinjewadi, Pune. Something near the IT park." },
       { role: "agent", content: "Hi Amit! Hinjewadi is a great choice for IT professionals. I'd recommend Kolte Patil Life Republic - it's an integrated township right next to the IT park with 2BHK apartments ranging from ₹65 lakhs to ₹1.1 Cr. It includes a school, hospital, and retail within the complex. The carpet area is 1,200 sq ft." },
       { role: "user", content: "What's the possession status? And is it RERA registered?" },
@@ -482,7 +482,7 @@ function getMessages(leadIdx: number, name: string) {
       { role: "user", content: "Let me think about it. I'm also looking at a couple of other projects. Can you send me the brochure?" },
     ],
     3: [
-      { role: "agent", content: "Hello! Welcome to PropVista Realty. How may I assist you?" },
+      { role: "agent", content: "Hello! Welcome to nulify. How may I assist you?" },
       { role: "user", content: "Hi, Rajesh Mehta referred me. I'm Sneha. I'm looking for an ultra-premium property in Gurgaon. Budget is not a constraint - around 5 crore." },
       { role: "agent", content: "Welcome, Sneha! Thank you for the referral from Rajesh. For ultra-luxury living in Gurgaon, I'd highly recommend DLF The Camellias on Golf Course Road. It's the pinnacle of luxury - 5BHK residences ranging from ₹5-10 Cr with private pools, concierge services, and access to the DLF Golf & Country Club. The units are 5,500 sq ft with 5 bedrooms and 5 bathrooms." },
       { role: "user", content: "That sounds exactly like what I'm looking for. Can I get a private viewing arranged?" },
@@ -490,34 +490,34 @@ function getMessages(leadIdx: number, name: string) {
       { role: "user", content: "You can transfer me now. Also, I'd like to see the property this week if possible." },
     ],
     4: [
-      { role: "agent", content: "Hello! Welcome to PropVista Realty. How can I help?" },
+      { role: "agent", content: "Hello! Welcome to nulify. How can I help?" },
       { role: "user", content: "Hey, I'm Vikram. Looking for something affordable in Thane, Mumbai. Maybe around 1 crore." },
       { role: "agent", content: "Hi Vikram! For Thane, I'd recommend Lodha Amara - a premium township with 3BHK apartments starting from ₹1.2 Cr up to ₹2.2 Cr. It has 40+ amenities including a cricket ground and amphitheater. However, I should mention it's currently under construction. Would that work for you?" },
       { role: "user", content: "Under construction? When will it be ready? And can you go below 1.2 Cr?" },
       { role: "agent", content: "The possession timeline is approximately 18-24 months. The starting price for 3BHK is ₹1.2 Cr, but there may be some negotiation possible depending on the unit and payment plan. Given your timeline of 6+ months, this could work well since you'd be getting a pre-launch benefit on pricing. Want me to arrange a site visit to see the sample flat?" },
     ],
     5: [
-      { role: "agent", content: "Hello! Welcome to PropVista Realty. How can I assist you?" },
+      { role: "agent", content: "Hello! Welcome to nulify. How can I assist you?" },
       { role: "user", content: "Hi, I'm Ananya. I'm a software architect at Google and I'm looking for a 3BHK in Whitefield. Already did my research - interested in Prestige Lakeside Habitat." },
       { role: "agent", content: "Hi Ananya! Great to hear you've done your research. Prestige Lakeside Habitat is an excellent choice - 3BHK lakeside apartments from ₹85L-1.4Cr with 1,850 sq ft. Since you're already familiar with the project, would you like to schedule a site visit directly?" },
       { role: "user", content: "Actually, I've already seen photos online and read the reviews. If the lake-view units are available, I'd like to proceed with booking directly. My budget is around ₹1.2 Cr." },
       { role: "agent", content: "That's wonderful, Ananya! We do have lake-view units available in your budget. To proceed with booking, I'll need to arrange a meeting with our sales team. They'll walk you through the payment plans, bank loan options, and documentation. Can I schedule this for you this week?" },
     ],
     6: [
-      { role: "agent", content: "Hello! Welcome to PropVista Realty. How can I help?" },
+      { role: "agent", content: "Hello! Welcome to nulify. How can I help?" },
       { role: "user", content: "Hi, I'm Karthik. I'm looking for commercial office space in Koramangala for my startup. Around 2000 sq ft." },
-      { role: "agent", content: "Hi Karthik! I appreciate you reaching out. PropVista Realty primarily specializes in residential properties. However, we do have a dedicated commercial real estate team that handles office spaces. Would you like me to transfer you to them? Our commercial specialist Suresh would be happy to assist you with office spaces in Koramangala." },
+      { role: "agent", content: "Hi Karthik! I appreciate you reaching out. nulify primarily specializes in residential properties. However, we do have a dedicated commercial real estate team that handles office spaces. Would you like me to transfer you to them? Our commercial specialist Suresh would be happy to assist you with office spaces in Koramangala." },
       { role: "user", content: "Yes please, transfer me to the commercial team." },
     ],
     8: [
-      { role: "agent", content: "Hello! Welcome to PropVista Realty. How can I help?" },
+      { role: "agent", content: "Hello! Welcome to nulify. How can I help?" },
       { role: "user", content: "Hi, this is Rohan. I called last week about properties in HSR Layout. I wanted to let you know I've decided to go with Sobha Dream Acres instead." },
       { role: "agent", content: "Hi Rohan, thank you for letting us know. May I ask what influenced your decision? Your feedback helps us improve our service." },
       { role: "user", content: "Honestly, the pricing was the main factor. Sobha offered a better deal for a similar configuration. Your team was very professional though." },
       { role: "agent", content: "I appreciate your honest feedback, Rohan. Congratulations on your new home! If anything changes or if you need real estate assistance in the future, please don't hesitate to reach out. We wish you all the best!" },
     ],
     9: [
-      { role: "agent", content: "Hello! Welcome to PropVista Realty. How can I help you today?" },
+      { role: "agent", content: "Hello! Welcome to nulify. How can I help you today?" },
       { role: "user", content: "Hi! I'm Nisha. I'm looking for a 4BHK villa in Sarjapur Road area. I have two dogs so it needs to be pet-friendly." },
       { role: "agent", content: "Hi Nisha! That's wonderful - we love pet parents! For pet-friendly villas in the Sarjapur area, I'd highly recommend Godrej Woodscapes at Budigere Cross. It's a premium gated community with 4BHK villas (₹2.5-4.5 Cr) with private gardens that are perfect for pets. The community has open green spaces and walking paths. The villas are 3,200 sq ft with 4 bedrooms and 4 bathrooms." },
       { role: "user", content: "That sounds perfect! What's the garden size? And are there other pet owners in the community?" },
@@ -528,7 +528,7 @@ function getMessages(leadIdx: number, name: string) {
   };
 
   return conversations[leadIdx] || [
-    { role: "agent", content: "Hello! Welcome to PropVista Realty. How can I help you today?" },
+    { role: "agent", content: "Hello! Welcome to nulify. How can I help you today?" },
     { role: "user", content: `Hi, I'm ${name}. I'm interested in learning about available properties.` },
     { role: "agent", content: "I'd be happy to help! Could you tell me your budget range and preferred location?" },
   ];
