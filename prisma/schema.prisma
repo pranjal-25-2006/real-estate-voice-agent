@@ -1,0 +1,117 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Lead {
+  id                String   @id @default(cuid())
+  name              String
+  phone             String
+  email             String?
+  budget            Float
+  budgetCurrency    String   @default("INR")
+  propertyType      String   // apartment/villa/plot/commercial
+  preferredLocation String?
+  timeline          String   // immediately/1-3 months/3-6 months/6+ months
+  qualificationScore Int     @default(0) // 0-100
+  status            String   @default("new") // new/qualified/booked/transferred/closed_lost
+  source            String   // phone_call/website/referral
+  notes             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  conversations Conversation[]
+  bookings      Booking[]
+  callTransfers CallTransfer[]
+}
+
+model Conversation {
+  id            String   @id @default(cuid())
+  leadId        String
+  externalCallId String? @unique // Bolna's execution_id — lets the webhook upsert instead of duplicating
+  transcript    String?
+  duration      Int      // seconds
+  recordingUrl  String?
+  sentiment     String   @default("neutral") // positive/neutral/negative
+  summary       String?
+  timestamp     DateTime @default(now())
+
+  lead          Lead             @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  messages      ConversationMessage[]
+  callTransfers CallTransfer[]
+}
+
+model ConversationMessage {
+  id             String   @id @default(cuid())
+  conversationId String
+  role           String   // user/agent/system
+  content        String
+  timestamp      DateTime @default(now())
+
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+}
+
+model Booking {
+  id               String   @id @default(cuid())
+  leadId           String
+  externalBookingId String? @unique // Cal.com's booking uid
+  propertyName     String
+  propertyId       String?
+  date             String   // YYYY-MM-DD
+  time             String   // HH:MM
+  status           String   @default("scheduled") // scheduled/confirmed/completed/cancelled/no_show
+  notes            String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+}
+
+model CallTransfer {
+  id             String   @id @default(cuid())
+  leadId         String
+  conversationId String?
+  transferTo     String   // agent name
+  transferPhone  String?
+  reason         String
+  status         String   @default("pending") // pending/connected/failed/missed
+  duration       Int?     // seconds
+  timestamp      DateTime @default(now())
+
+  lead         Lead          @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  conversation Conversation? @relation(fields: [conversationId], references: [id], onDelete: SetNull)
+}
+
+model Property {
+  id              String   @id @default(cuid())
+  name            String
+  type            String
+  priceMin        Float
+  priceMax        Float
+  priceCurrency   String   @default("INR")
+  location        String
+  description     String?
+  bedrooms        Int?
+  bathrooms       Int?
+  areaSqft        Int?
+  status          String   @default("available") // available/sold/under_construction
+  reraId          String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model AgentConfig {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  label     String
+  type      String   // text/number/boolean/textarea
+  category  String   // general/voice/twilio/qualification
+  updatedAt DateTime @updatedAt
+}
