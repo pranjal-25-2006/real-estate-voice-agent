@@ -80,7 +80,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
       <motion.aside
         className={`fixed top-0 left-0 h-full z-40 flex flex-col py-6 px-3 transition-all duration-300
           ${collapsed ? "w-64 translate-x-0" : "-translate-x-full lg:translate-x-0 lg:w-64"}
-          bg-[#080d17] border-r border-white/5`}
+          bg-[#050507] border-r border-white/5`}
       >
         {/* Logo */}
         <div className="flex items-center gap-3 px-3 mb-8">

@@ -244,7 +244,7 @@ function BookingForm({
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-[#0d1321] border border-white/10 rounded-2xl z-50 p-6"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-[#0a0d13] border border-white/10 rounded-2xl z-50 p-6"
       >
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-lg font-bold text-white">Schedule Booking</h2>
@@ -261,9 +261,9 @@ function BookingForm({
               required
               className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none appearance-none"
             >
-              <option value="" className="bg-[#0d1321]">Select lead...</option>
+              <option value="" className="bg-[#0a0d13]">Select lead...</option>
               {leads.map((l) => (
-                <option key={l.id} value={l.id} className="bg-[#0d1321]">{l.name}</option>
+                <option key={l.id} value={l.id} className="bg-[#0a0d13]">{l.name}</option>
               ))}
             </select>
           </div>
@@ -277,9 +277,9 @@ function BookingForm({
               }}
               className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none appearance-none"
             >
-              <option value="" className="bg-[#0d1321]">Select property...</option>
+              <option value="" className="bg-[#0a0d13]">Select property...</option>
               {properties.map((p) => (
-                <option key={p.id} value={p.id} className="bg-[#0d1321]">{p.name}</option>
+                <option key={p.id} value={p.id} className="bg-[#0a0d13]">{p.name}</option>
               ))}
             </select>
           </div>

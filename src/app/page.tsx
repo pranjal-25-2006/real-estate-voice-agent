@@ -54,7 +54,7 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex-1 lg:ml-64 min-h-screen flex flex-col">
         {/* Top Bar */}
-        <header className="sticky top-0 z-20 px-4 sm:px-6 lg:px-8 py-4 bg-[#0a0f1a]/80 backdrop-blur-xl border-b border-white/5">
+        <header className="sticky top-0 z-20 px-4 sm:px-6 lg:px-8 py-4 bg-black/60 backdrop-blur-xl border-b border-white/5">
           <div className="flex items-center justify-between">
             <div className="pl-12 lg:pl-0">
               <h2 className="text-xl font-bold text-white">{TAB_TITLES[activeTab]}</h2>
@@ -87,7 +87,7 @@ export default function Home() {
         </div>
 
         {/* Footer */}
-        <footer className="px-4 sm:px-6 lg:px-8 py-4 border-t border-white/5 bg-[#0a0f1a]/80">
+        <footer className="px-4 sm:px-6 lg:px-8 py-4 border-t border-white/5 bg-black/60">
           <div className="flex items-center justify-between text-xs text-slate-600">
             <span>© 2026 nulify. All rights reserved.</span>
             <span>Powered by AI Voice Agent</span>

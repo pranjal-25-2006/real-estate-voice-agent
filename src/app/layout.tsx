@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
+import MouseGlow from "@/components/MouseGlow";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Real Estate Voice Agent",
-  description: "AI-powered voice agent dashboard for real estate",
+  title: "nulify | Voice Agent Dashboard",
+  description: "nulify — AI voice agent dashboard for real estate",
 };
 
 export default function RootLayout({
@@ -24,12 +25,13 @@ export default function RootLayout({
           position="bottom-right"
           toastOptions={{
             style: {
-              background: "rgba(15, 23, 42, 0.95)",
+              background: "rgba(10, 12, 16, 0.95)",
               border: "1px solid rgba(255, 255, 255, 0.1)",
-              color: "#e2e8f0",
+              color: "#e8eaf2",
             },
           }}
         />
+        <MouseGlow />
       </body>
     </html>
   );

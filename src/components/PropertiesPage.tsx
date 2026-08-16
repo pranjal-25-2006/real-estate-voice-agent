@@ -233,7 +233,7 @@ function PropertyForm({
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-[#0d1321] border border-white/10 rounded-2xl z-50 p-6 max-h-[90vh] overflow-y-auto"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-[#0a0d13] border border-white/10 rounded-2xl z-50 p-6 max-h-[90vh] overflow-y-auto"
       >
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-lg font-bold text-white">Add Property</h2>
@@ -251,7 +251,7 @@ function PropertyForm({
               className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none appearance-none"
             >
               {["apartment", "villa", "plot", "commercial"].map((t) => (
-                <option key={t} value={t} className="bg-[#0d1321]">{t}</option>
+                <option key={t} value={t} className="bg-[#0a0d13]">{t}</option>
               ))}
             </select>
           </div>
@@ -282,7 +282,7 @@ function PropertyForm({
               className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none appearance-none"
             >
               {["available", "sold", "under_construction"].map((s) => (
-                <option key={s} value={s} className="bg-[#0d1321]">{s.replace(/_/g, " ")}</option>
+                <option key={s} value={s} className="bg-[#0a0d13]">{s.replace(/_/g, " ")}</option>
               ))}
             </select>
           </div>

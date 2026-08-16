@@ -292,7 +292,7 @@ export default function LeadsPage() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 h-full w-full max-w-lg bg-[#0d1321] border-l border-white/10 z-50 overflow-y-auto"
+              className="fixed right-0 top-0 h-full w-full max-w-lg bg-[#0a0d13] border-l border-white/10 z-50 overflow-y-auto"
             >
               <div className="p-6">
                 {/* Header */}
@@ -503,7 +503,7 @@ function AddLeadDialog({
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-[#0d1321] border border-white/10 rounded-2xl z-50 p-6 max-h-[90vh] overflow-y-auto"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-[#0a0d13] border border-white/10 rounded-2xl z-50 p-6 max-h-[90vh] overflow-y-auto"
       >
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-lg font-bold text-white">Add New Lead</h2>
@@ -602,7 +602,7 @@ function SelectField({
         className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none appearance-none"
       >
         {options.map((o) => (
-          <option key={o} value={o} className="bg-[#0d1321]">
+          <option key={o} value={o} className="bg-[#0a0d13]">
             {o.replace(/_/g, " ")}
           </option>
         ))}
